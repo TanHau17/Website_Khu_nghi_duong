@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BOOKING FORM | BOOK MY FARM  </title>
+
+<link type="text/css" rel="stylesheet" href="bootstrap.min.css" >
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+
+	<link type="text/css" rel="stylesheet" href="booking.css" >
+	<link type="text/css" rel="stylesheet" href="bootstrap.min.css" >
+
+
+
+</head>
+
+<body style="background-color: black;">
+
+    <nav class="navbar navbar-inverse" id="navgi">
+        <div class="container-fluid">
+        <div class="navbar-header">
+          
+        <a class="navbar-brand" href="#"><span style="color: white;"><b>BOOk</b></span><span style="color:orange"><b>MY</b></span><span style="color: white;"><b>FARM</b></span></a>
+          </div>
+         
+           
+         
+          <ul class="nav navbar-nav">
+            <li><a href="homepage.html" target="blank">Home</a></li>
+            <li><a href="farm.html" target="blank">Farm Gallary</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+      
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="Sing up.html" target="blank"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+           <li><a href="Login11.html" target="blank"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+           
+      
+          
+          </ul>
+          
+        </div>
+        
+      </nav>
+      
+
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<div class="form-header">
+							<h1>Make your reservation</h1>
+						</div>
+						<form action="payment.html">
+							<div class="form-group">
+								<input class="form-control" type="text" placeholder="Please Provide Address" required>
+								<span class="form-label">Destination</span>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="date" required>
+										<span class="form-label">Check In</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="date" required>
+										<span class="form-label">Check out</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<select class="form-control" required>
+											<option value="" selected hidden>no of rooms</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+										<span class="form-label">Rooms</span>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<select class="form-control" required>
+											<option value="" selected hidden>no of adults</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+											<option>7</option>
+											<option>8</option>
+										</select>
+										<span class="select-arrow"></span>
+										<span class="form-label">Adults</span>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<select class="form-control" required>
+											<option value="" selected hidden>no of children</option>
+											<option>0</option>
+											<option>1</option>
+											<option>2</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+										</select>
+										<span class="select-arrow"></span>
+										<span class="form-label">Children</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="email" placeholder="Enter your Email" required>
+										<span class="form-label">Email</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="tel" placeholder="Enter you Phone" required>
+										<span class="form-label">Phone</span>
+									</div>
+						        </div>
+						   </div>
+							<div class="form-btn">
+							<input type="submit" class="submit-btn">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$('.form-control').each(function () {
+			floatedLabel($(this));
+		});
+
+		$('.form-control').on('input', function () {
+			floatedLabel($(this));
+		});
+
+		function floatedLabel(input) {
+			var $field = input.closest('.form-group');
+			if (input.val()) {
+				$field.addClass('input-not-empty');
+			} else {
+				$field.removeClass('input-not-empty');
+			}
+		}
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+}
+body{
+background-image: url('farm details photos/loginbg.jpg');
+    background-size: cover;
+}
+.wrap{
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    font-family: sans-serif;
+    background: #fff;
+    border-radius: 10px;
+}
+.wrap h2{
+    font-size: 2em;
+    text-align: center;
+}
+button{
+    padding: 10px;
+    width: 49%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+button a{
+    text-decoration: none;
+    color: #fff;
+}
+button:nth-child(1){
+    background: purple;
+}
+button:nth-child(2){
+    background: green;
+}
+button:hover{
+    background: rgba(0,0,0,0.6);
+}
+.fa{
+    font-size: 1.3em;
+    font-weight:bold;
+}
+form{
+    margin-top: 30px;
+
+}
+input[type=text],input[type=password],input[type=submit]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    border: 2px solid gray;
+}
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+input[type=submit]{
+    background: red;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+background: orange;
+}
+p{
+    text-align:center
+}
+p a{
+    text-decoration: none;
+    font-weight: bold;
+
+}
+ #email_error,
+ #pass_error
+{
+    margin-top: 1px;
+    width: 345px;
+    font-size: 18px;
+    color: #c62828;
+    background: rgb(255,0,0,0.1);
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid #EF9A9A;
+    display: none;
+}

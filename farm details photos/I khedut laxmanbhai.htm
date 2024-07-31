@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" /><meta name="author" /><title>
+	:- Single Sign On -:
+</title><meta http-equiv="CACHE-CONTROL" content="NO-CACHE" /><meta http-equiv="CACHE-CONTROL" content="private" /><meta http-equiv="CACHE-CONTROL" content="no-store" /><meta http-equiv="CACHE-CONTROL" content="must-revalidate" /><meta http-equiv="PRAGMA" content="NO-CACHE" /><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+    <style type="text/css">
+        @import url( Css/bootstrap.min.css );
+    </style>
+
+    <script src="JScript/jquery.min.js" type="text/javascript"></script>
+
+    <script src="JScript/bootstrap.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        @import url( Css/admin_login.css );
+    </style>
+</head>
+
+<script src="JScript/webtoolkit.sha1.js" type="text/javascript"></script>
+
+<script src="JScript/validations.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+    function Flogin() {
+        if (chkbadchar(document.getElementById('TxtUsername').value) == false) {
+            document.getElementById('TxtUsername').focus();
+            return false;
+        }
+        if (isProperAlNum(document.getElementById('TxtPwd').value) == false) {
+            alert('Minimun length of password should be 8 alphanumeric character and atleast one special character such as !,@,$,%,^,&,(,)');
+            document.getElementById('TxtPwd').focus();
+            return false;
+        }
+        var enc;
+        enc = Encpt(document.form1.TxtPwd.value);
+        document.form1.TxtPwd.value = enc;
+        return true;
+    }
+    function Encpt(s) {
+        s = SHA1(s);
+        var str = "";
+        var n;
+        var TmpS = "";
+        //var rand_no = Math.random();
+        //rand_no = rand_no * 1000;
+        //rand_no = Math.ceil(rand_no);
+        //TmpS=SHA1(rand_no.toString());
+
+        TmpS = document.form1.st.value;
+        if (s.length <= TmpS.length) {
+            for (i = 0; i < s.length; i++)
+                str = str + s.charAt(i) + TmpS.charAt(i);
+        }
+        else {
+            for (i = 0; i < TmpS.length; i++)
+                str = str + s.charAt(i) + TmpS.charAt(i);
+        }
+        str = SHA1(str);
+        return str;
+    }
+    function onloadpage() {
+        document.getElementById('form1').setAttribute("autocomplete", "off");
+        document.getElementById('TxtUsername').focus();
+    }
+</script>
+
+<body onload="onloadpage();">
+    <form name="form1" method="post" action="SSO.aspx?Rurl=https%3a%2f%2fikhedut.gujarat.gov.in%2fAdmin%2ffrm_Home.aspx" id="form1" autocomplete="off">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="lNDFsmXNPiudpwYwqV6SyK8Tv9j18dOn+SLVeG+8Qz5nSd07adYY6Wn2SfJbtQtWxFhQSyuv0rs/nTsZUenPnNrlES1CWFlNgOwwhYlWfrR0MfsPdnaOBqiEfXFGJnV0exYb9M6FrFlPvOTSZaGSTmj7ydPwiIKeg5fdFkXwcPmRU/BEOe0qragaHPT0WruSf8ageAxxriDxVi8tvF2ixJZ/UhapqsdhnAnUeo5RB+BDrr83t13Rr5lQfg55dYssX0HQ6KfWZ/Kz7TsSeEld+3E+USopmMO5TkHOVKsX7sYle0pEVTTMVyCarl+oCMBHH5y+KxOzin6fh/80kHM/BUL9qsVrJbNsZJ2wtEhTb5IpXaszmoZ9MopmogKSM3dtMoNSmxCJpAo+6NMEu0ADbtYRRSV6xLtdwO4uMENEVbh/fkdUSuse7yxSZLy+t4mj0mkgzXqyzBs3NcthpshcaOwAVlDwggGWaJ+UIb0wcxrp23qTXPV0wRhVM7dbacNNU73PpDsEs0yTycKosIOxKM234PExIFNsT41fTowp8W2Z0D8mbIDpIFyUzWziwkt8/aO8HVFJPnt5qO+gxgWXQ6Utwv9XME1WVjsv4C6uhmk+3KgoV7c+ZzIttt4sBKJtq4SHzC07+QTz/PFuIMSt9AquqLpXJrc8KK9sSfNKrTQ6HpgUaYkQuYtDoTV4g9mUTj/ys6KXeiMk6Kij+eSU+GiZJK2GxStLLJ0kH5boZhoPU1m4ECcd28Bzp3Od/iK7UwauoAEqwvxv33nE6SsxgeB4wjjqc9CHwK49HzuxTRPgpEQzzrSZPRV1wF5lD1+xZZA8lJf1b40Jdn9D9QqmoOKo+kIMjOTs/rRVdrPYnc6j9oMyufuhUbJFYC2hLo1IU1HYuf5rIEjOAvLqDjDIvJoU/KESx2XFlZ+Ys05uLevj9z6ruQvBiz9WxbzVrfRRDi6Qktq/uwOsgQn4un3kfmrtcV9xtvX7rfK+KtR8z2hVDWt03xamOJ0nO3SYo3Wcy1j5LhR4msvU0ZdXSsiAiBB8ZSNuJISS6svRKByhjGfrjEKOadA0DVLOxJAK4zLy2oSxN9fA/LQQ1dA7WcGnRSrZc7BuUfCkYmSqsu/uJSDRA2efXjWzkxcDJroxzXBzaH9G6MroffwHlD2rmvhe6D84sV7sIrkdnnuqU6SOVqOIH3Og3S+4B59dtWfVU0NIQajvsPsPDwPAi+W/4lncujBmW/1L8ReTY8ZHWUwuz2IQ6HPqLKBIIZ0EeVvvB7SiG1ZyGio+ORAYMJ9CQ0gbjsOBI6suGcBqz7nQnf1g13BNyfLdjL8YUtz/jIR8MVPwDP/3E30p2MV3PHsjLtcovDHMZqivC66rIfZV+wiATdqmGfqCKC4IW9usRMXY2bUa+IJkDWSKCvRQbpeegH9nNkIcl3JqORs71iIk7P8YT3L6N4VVUNScX9f0fQEsvK44GVbguX6f6homHOTOw9GumV7iDosoxrlRpG1Owc4Nb5EvKnV0z1prHF3mTEgj8GZLhXhBeUR7PaDQ7rbM7Aoh9uwyi//Ixu/Tygc1eabtjus+ZIvK136Q/aFfpIfZVxeZLSN8dYhzw7VgnoiP" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="1DDE2FAC" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="+lDX03dCttv732m1GsEXwAId20ejA8u6io7MtOV7/2ib16DCKXreqor18KVDW63hXRtXOhThJRDuvimuMOwP8/+A0R3ynpm5q+K4bRVNdExRrnbajxAYSfuq/IQ48NmvbjR8iDCeHjrC82kFdspGYCBJaMxfzaFDfkRjjnXJpm5/LovT/vf7EEelLsjCNRIJBnmZVUYEKBzd1jpksgnsj2sFjbM=" />
+</div>
+    <div id="wrapper">
+        <div id="header">
+            <div id="mambo" style="z-index: 100">
+                <img alt="SSO" src="images/header_text.png" />
+                <span style="font-size: 12pt; color: #ffffff">User Administration</span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 ">
+                <div class="login">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12" style="text-align: center">
+                                    <img id="ImgLogo" class="img-responsive " src="Images\ikhedut.gujarat.gov.in_Admin_frm_Home.jpg" style="border-width:0px;" />
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="login-form">
+                                <div class="row">
+                                    <div class="col-xs-12 ">
+                                        <img alt="Login" src="images/login.gif" class="img-responsive " />
+                                        <input name="st" type="hidden" id="st" value="A86AD88907E8DDC8FEBA525037309C8877A94E1D" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 ">
+                                        <div class="form-block col-xs-12">
+                                            <div class="inputlabel">
+                                                Username
+                                            </div>
+                                            <div>
+                                                <input type="password" id="prevent_autofillus" style="display: none" value="sdf" />
+                                                <input name="TxtUsername" type="text" id="TxtUsername" class="form-control" class="inputbox" AutoComplete="off" />
+                                            </div>
+                                            <div class="inputlabel">
+                                                Password
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 ">
+                                                    <input type="password" id="prevent_autofill" style="display: none" value="sdf" />
+                                                    <input name="TxtPwd" type="password" id="TxtPwd" class="form-control" AutoComplete="off" />
+                                                    
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-4">
+                                                            <img src="CaptchaImg.aspx?ewe=A86AD88907E8DDC8FEBA525037309C8877A94E1D" id="IMGCAP" height="35" width="75" />
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-4">
+                                                            <a id="LnkCpatchaRef" href="javascript:__doPostBack('LnkCpatchaRef','')"><img src="Images/captcharef.png" id="IMGCAPTCHAREF" /></a>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <span id="Label1" class="Lbl">Enter text as shown </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <input name="TxtCaptcha" type="text" id="TxtCaptcha" class="form-control" class="Txt" AutoComplete="OFF" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <input type="submit" name="CmdLogin" value="Login..." onclick="return Flogin();" id="CmdLogin" class="button form-control" style="width:80px;" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <span id="LblMsg" style="color:Red;"></span>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <input type="submit" name="CmdPwdChange" value="Change Password" onclick="return Flogin();" id="CmdPwdChange" class="button form-control" style="width:120px;" />
+                                                </div>
+                                                <div class="col-xs-12 col-md-6">
+                                                    <input type="submit" name="CmdUserProfile" value="User Profile" onclick="return Flogin();" id="CmdUserProfile" class="button form-control" style="width:90px;" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <input type="submit" name="CmdVMob" value="Change/Verify your Mobile No./eMail" onclick="return Flogin();" id="CmdVMob" class="button form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <input type="submit" name="CmdLAadhar" value="Link your Aadhar number" onclick="return Flogin();" id="CmdLAadhar" class="button form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-text">
+                                <div class="ctr">
+                                    <img alt="security" src="images/security.jpg" class="img-responsive " />
+                                </div>
+                                <p>
+                                    Welcome to SSO!<br />
+                                    <br />
+                                    <a href="Download/certificate.html" target="_blank">(How to Install Security Certificate)</a><br />
+                                    <br />
+                                    <a href="Download/ssl_certi_upto082016.p7b">Install Security Certificate</a><br />
+                                    <br />
+                                    
+                                </p>
+                                <p>
+                                    Use a valid username and password to gain access.
+                                </p>
+                                <p>
+                                    <a id="LnkForPwd" href="javascript:__doPostBack('LnkForPwd','')">Forgot Password ?</a>
+                                    <br />
+                                    <br />
+                                    <a id="LnkUnBUser" href="javascript:__doPostBack('LnkUnBUser','')">Unblock User</a>
+                                    <br />
+                                    <br />
+                                    <a id="LnkNewUser" href="javascript:__doPostBack('LnkNewUser','')">Request to create new user<font color='red'>(For GOVT users only, not for public)</font></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div id="divNewsTable"><font size='2pt'><table cellspacing='2' id='tblnews' cellpadding='10'><tr><td><img src='Images/expand-arrow.gif'/>&nbsp;<a href='#' style='cursor: hand;' onClick="dWin = window.open('DispSign.aspx?er=rrTtOKwMlmcRa98I8+DmTw==&fdg=sdshg', 'dWin','toolbar=no,scrollbars=yes, left=0,top=0, menubar=no, titlebar=no,status=yes, resizable=no, screenX=0, screenY=0');">Please do your mobile number verification by clicking on  VERIFY YOUR MOBILE NUMBER  button in the login screen. (તમારા મોબાઈલ નંબરની ચકાસણી લોગીન સ્ક્રીન પર આવેલ VERIFY YOUR MOBILE NUMBER બટન પર ક્લિક કરીને કરો.)</a></td><tr></table></font></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                        <a href="http://india.gov.in" target="_blank">
+                            <img src="Images/DIndia.jpg" name="dindia" id="Img1" class="img-responsive " alt="Digital India" /></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <a href="http://gandhi.gov.in" target="_blank">
+                            <img src="Images/gandhi.jpg" name="gandhi" id="Img2" class="img-responsive " alt="Gandhiji" /></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="" id="LRotating1" target="_blank">
+                            <img src="" name="Rotating" id="Rotating1" alt="banner" class="img-responsive " /></a>
+                        <br />
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" language="javascript">
+            var ImageArr1 = new Array("Images/dial_gov_in.jpg", "Images/indiagovin-banner1.jpg", "Images/nkn_banner.jpg", "Images/data_gov_in.png", "Images/banner_nadrs1.png", "Images/eTaal.png");
+            var LinkArr1 = new Array("http://dial.gov.in", "http://www.india.gov.in/", "http://www.nkn.in/", "http://data.gov.in", "http://nadrs.gov.in", "http://etaal.gov.in/");
+            var ImageHolder1 = document.getElementById('Rotating1');
+            var LinkHolder1 = document.getElementById('LRotating1');
+            function RotateImages(whichHolder, Start) {
+                var a = eval("ImageArr" + whichHolder);
+                var b = eval("ImageHolder" + whichHolder);
+                var La = eval("LinkArr" + whichHolder);
+                var Lb = eval("LinkHolder" + whichHolder);
+                if (Start >= a.length)
+                    Start = 0;
+                b.src = a[Start];
+                Lb.href = La[Start];
+                window.setTimeout("RotateImages(" + whichHolder + "," + (Start + 1) + ")", 3500);
+            }
+            RotateImages(1, 0);
+        </script>
+
+    </div>
+    <div class="footer" align="center">
+    </div>
+    </form>
+    <noscript>
+        !Warning! Javascript must be enabled for proper operation of the Administrator
+    </noscript>
+</body>
+</html>

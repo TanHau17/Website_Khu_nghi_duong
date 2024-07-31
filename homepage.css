@@ -1,0 +1,63 @@
+.slogancolor
+{
+    color:white;
+	
+}
+.label
+{
+    color:black;
+}
+.workflow
+{
+   background: url('farm details photos/loginbg.jpg');
+    background-position: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-content: center;
+
+
+}
+.navlink:hover
+{
+	color:orange;
+}
+h4{
+    color:lightblue ;
+
+}
+.row{
+    
+}
+.form
+{
+    width:100%;
+    height:50%;
+    border-radius: 25px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    padding:8%;
+    background-color:whitesmoke;
+    border: black;
+    border-style: solid;
+    border-width:5;
+    margin-left: 40px;
+    
+}
+.step
+{
+    color: black;
+}
+
+ .backimage
+ {
+    background-image: url('farm details photos/homeback.jpg');
+    background-repeat: no-repeat;
+    background-attachment:fixed; 
+    background-size: 100% 100%;
+    margin-top: -20px;
+    
+ } 
+ .footer
+{
+	background: black;
+}

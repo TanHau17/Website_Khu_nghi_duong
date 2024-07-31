@@ -1,0 +1,20 @@
+div {
+    background-color:lightgrey;
+    width: 280px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    
+  }
+  body{
+    background-color: black;
+}
+
+
+  h1{
+    color: white;
+}
+
+h2,h3,h4,h5{
+    color:black;
+}

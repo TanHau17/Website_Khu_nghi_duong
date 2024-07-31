@@ -1,0 +1,95 @@
+/* Định kiểu cho thẻ body */
+body {
+    background-color: hsla(0, 15%, 90%, 0.997); /* Màu nền có độ trong suốt */
+}
+
+/* Định kiểu cho tất cả các thẻ img trong class thumbnails */
+.thumbnails img {
+    display: block; /* Hiển thị ảnh dưới dạng block để căn chỉnh */
+    max-width: 100%; /* Chiều rộng tối đa là 100% của phần tử chứa */
+    height: auto; /* Chiều cao tự động tính theo tỷ lệ */
+}
+
+/* Định kiểu cho các phần tử có class thumbnail */
+.thumbnail {
+    width: 350px; /* Độ rộng */
+    height: 200px; /* Độ cao */
+}
+
+/* Định kiểu cho tất cả các phần tử div */
+p{
+    font-size: 20px;
+}
+div {
+    background-color: lightgrey; /* Màu nền xám nhạt */
+    width: 89%; /* Độ rộng */
+
+    padding: 50px; /* Khoảng cách bên trong 50px */
+    margin: 20px; /* Khoảng cách bên ngoài 20px */
+}
+
+/* Định kiểu cho thẻ h1 */
+h1 {
+    color: rgb(27, 14, 14); /* Màu chữ trắng */
+}
+
+/* Định kiểu cho các thẻ h2, h3, h4, h5 */
+h2, h3, h4, h5 {
+    color: black; /* Màu chữ đen */
+}
+
+/* Định kiểu cho phần tử có class a */
+.a {
+    position: absolute; /* Vị trí tuyệt đối */
+    transform: translate(-50%, -50%); /* Dịch chuyển 50% so với trục x và trục y */
+    width: 400px; /* Độ rộng */
+    height: 60px; /* Độ cao */
+    text-align: center; /* Căn giữa nội dung */
+    line-height: 60px; /* Chiều cao dòng */
+    color: white; /* Màu chữ trắng */
+    font-size: 24px; /* Kích thước chữ */
+    text-transform: uppercase; /* Chữ in hoa */
+    text-decoration: none; /* Không gạch chân */
+    font-family: 'Times New Roman', Times, serif; /* Font chữ */
+    box-sizing: border-box; /* Hộp tính toán kích thước bao gồm padding và border */
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4); /* Gradient màu */
+    background-size: 150%; /* Kích thước background */
+    border-radius: 30px; /* Bo góc 30px */
+    z-index: -1; /* Chỉ số z để đặt phần tử phía sau */
+}
+
+/* Định kiểu khi di chuột qua phần tử có class a */
+.a:hover {
+    animation: animate 8s linear infinite; /* Chạy animation trong 8 giây với hiệu ứng lặp vô hạn */
+}
+
+/* Định kiểu cho animation */
+@keyframes animate {
+    0% {
+        background-position: 0%; /* Vị trí ban đầu của gradient */
+    }
+    100% {
+        background-position: 150%; /* Vị trí cuối cùng của gradient */
+    }
+}
+
+/* Tạo một layer trước phần tử có class a */
+.a:before {
+    content: ''; /* Nội dung trống */
+    position: absolute; /* Vị trí tuyệt đối */
+    top: -5px; /* Cách top 5px */
+    left: -5px; /* Cách left 5px */
+    right: -5px; /* Cách right 5px */
+    bottom: -5px; /* Cách bottom 5px */
+    z-index: -1; /* Chỉ số z để đặt phần tử phía sau */
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4); /* Gradient màu */
+    background-size: 150%; /* Kích thước background */
+    border-radius: 40px; /* Bo góc 40px */
+    filter: blur(20px); /* Hiệu ứng mờ */
+}
+
+/* Định kiểu khi di chuột qua phần tử trước có class a */
+.a:hover:before {
+    filter: blur(20px); /* Hiệu ứng mờ */
+    opacity: 0.5; /* Độ mờ */
+}
